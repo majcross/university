@@ -3,8 +3,7 @@
 /*
   Plugin Name: Featured Professor Block Type
   Version: 1.0
-  Author: Your Name Here
-  Author URI: https://www.udemy.com/user/bradschiff/
+  Author: Adeyemo Michael
   Text Domain: featured-professor
   Domain Path: /languages
 */

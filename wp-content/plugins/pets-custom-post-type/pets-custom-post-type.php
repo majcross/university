@@ -3,15 +3,15 @@
 /*
   Plugin Name: Pet Adoption (Custom Post Type)
   Version: 1.0
-  Author: Brad
-  Author URI: https://www.udemy.com/user/bradschiff/
+  Author: Adeyemo Michael
 */
 
-if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if (! defined('ABSPATH')) exit; // Exit if accessed directly
 
 add_action('init', 'ourInit');
 
-function ourInit() {
+function ourInit()
+{
   register_post_type('pet', array(
     'label' => 'Pets',
     'public' => true,
@@ -19,17 +19,16 @@ function ourInit() {
     'show_in_rest' => true,
     'supports' => array('title', 'editor', 'custom-fields')
   ));
-
 }
 
-add_filter('template_include', function($template) {
+add_filter('template_include', function ($template) {
   if (is_page('pet-adoption')) {
     return plugin_dir_path(__FILE__) . 'inc/template-pets.php';
   }
   return $template;
 }, 99);
 
-add_action('wp_enqueue_scripts', function() {
+add_action('wp_enqueue_scripts', function () {
   if (is_page('pet-adoption')) {
     wp_enqueue_style('petadoptioncss', plugin_dir_url(__FILE__) . 'pet-adoption.css');
   }
@@ -48,7 +47,8 @@ require_once plugin_dir_path(__FILE__) . 'inc/CreatePets.php';
 
 //add_action('admin_head', 'insertPetPosts');
 
-function insertPetPosts() {
+function insertPetPosts()
+{
   for ($i = 0; $i < 84000; $i++) {
     $pet = generatePet();
 
@@ -63,7 +63,7 @@ function insertPetPosts() {
         'weight' => $pet['weight'],
         'favColor' => $pet['favColor'],
         'favHobby' => $pet['favHobby']
-        )
+      )
     ));
   }
 }
